@@ -1,0 +1,9 @@
+#!/bin/sh
+export MIX_ENV=test
+mix deps.get &&
+mix deps.compile &&
+mix compile --warnings-as-errors &&
+mix credo --strict &&
+mix coveralls.html  &&
+mix dialyzer --halt-exit-status &&
+echo "Congratulations! It seems you project keeps the Law!"
